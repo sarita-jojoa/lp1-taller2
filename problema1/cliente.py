@@ -25,6 +25,7 @@ cliente.sendall(b"Mundo!")
 
 # TODO: Recibir datos del servidor (hasta 1024 bytes)
 
+respuesta = cliente.recv(1024)
 
 # TODO: Decodificar e imprimir los datos recibidos
 
