@@ -44,7 +44,7 @@ datos = cliente.recv(1024)
 # TODO: Enviar respuesta al cliente (convertida a bytes)
 # sendall() asegura que todos los datos sean enviados
 
-cliente.sendall(b"hola!" + datos) # debe ser binario, NO cadenas
+cliente.sendall(b"hola" + datos) # debe ser binario, NO cadenas
 
 # TODO: Cerrar la conexión con el cliente
 
