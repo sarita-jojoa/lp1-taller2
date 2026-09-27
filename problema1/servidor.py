@@ -48,3 +48,4 @@ cliente.sendall(b"hola!" + datos) # debe ser binario, NO cadenas
 
 # TODO: Cerrar la conexión con el cliente
 
+cliente.close()
