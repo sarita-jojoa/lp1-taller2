@@ -52,5 +52,7 @@ while True:
     
     # TODO: Enviar los mismos datos de vuelta al cliente (echo)
     
+    conn.sendall(data)
+
     # TODO: Cerrar la conexión con el cliente actual
 
