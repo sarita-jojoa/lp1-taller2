@@ -33,14 +33,16 @@ while True:
     
     # TODO: Aceptar una conexión entrante
     # accept() bloquea hasta que llega una conexión
-    # conn: nuevo socket para comunicarse con el cliente
+    # conn: nuevo socket para comunicarse con el cliente 
     # addr: dirección y puerto del cliente
 
     conn, addr = servidor.accept()
     print(f"Conexión realizada por {addr}")
 
-    # TODO: Recibir datos del cliente (hasta 1024 bytes)
+    # TODO: Recibir datos del cliente (hasta 1024 bytes) #conn = cliente
     
+    data = conn.recv(1024)  
+
     # Si no se reciben datos, salir del bucle
     if not data:
         break
