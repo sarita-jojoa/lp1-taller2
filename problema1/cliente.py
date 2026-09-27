@@ -29,6 +29,7 @@ respuesta = cliente.recv(1024)
 
 # TODO: Decodificar e imprimir los datos recibidos
 
+print(f"Respuesta: {respuesta}")
 
 # TODO: Cerrar la conexión con el servidor
 
