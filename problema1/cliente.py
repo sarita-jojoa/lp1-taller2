@@ -21,6 +21,7 @@ cliente.connect((HOST, PORT))
 # TODO: Enviar datos al servidor (convertidos a bytes)
 # sendall() asegura que todos los datos sean enviados
 
+cliente.sendall(b"Mundo!")
 
 # TODO: Recibir datos del servidor (hasta 1024 bytes)
 
