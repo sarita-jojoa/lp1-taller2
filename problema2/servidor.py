@@ -8,6 +8,9 @@ import socket
 
 # TODO: Definir la dirección y puerto del servidor
 
+HOST = 'localhost'
+PORT = 9000
+
 # TODO: Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
 # SOCK_STREAM: socket de tipo TCP (orientado a conexión)
