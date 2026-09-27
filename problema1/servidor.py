@@ -35,7 +35,7 @@ print("Servidor a la espera de conexiones ...")
 # addr: dirección y puerto del cliente
  
 cliente, addr = servidor.accept()
-print(f"Conexión realizada por {addr}")
+print(f"Un cliente {cliente} se conecto desde la dirección {addr}")
 
 # TODO: Recibir datos del cliente (hasta 1024 bytes)
 
