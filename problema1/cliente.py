@@ -33,3 +33,4 @@ print(f"Respuesta: {respuesta}")
 
 # TODO: Cerrar la conexión con el servidor
 
+cliente.close()
