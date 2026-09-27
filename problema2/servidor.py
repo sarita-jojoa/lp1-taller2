@@ -29,13 +29,14 @@ servidor.listen()
 # Bucle infinito para manejar múltiples conexiones (una a la vez)
 while True:
 
-    print("Servidor a la espera de conexiones ...")
+    print("Servidor 'Echo' a la espera de conexiones ...")
     
     # TODO: Aceptar una conexión entrante
     # accept() bloquea hasta que llega una conexión
     # conn: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
-    
+
+    conn, addr = servidor.accept()
     print(f"Conexión realizada por {addr}")
 
     # TODO: Recibir datos del cliente (hasta 1024 bytes)
