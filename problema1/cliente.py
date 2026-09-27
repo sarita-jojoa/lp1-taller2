@@ -5,7 +5,8 @@ Objetivo: Crear un cliente TCP que se conecte a un servidor e intercambie mensaj
 """
 
 import socket
-
+HOST = 'localhost'  # Dirección del servidor
+PORT = 9000        # Puerto del servidor
 
 # TODO: Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
