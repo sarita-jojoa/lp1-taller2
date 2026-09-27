@@ -18,11 +18,11 @@ PORT = 9000        # Puerto del servidor
 servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # TODO: Enlazar el socket a la dirección y puerto especificados
-servidor.bind((HOST, PORT))
+
 
 # TODO: Poner el socket en modo escucha
 
-servidor.listen()
+
 
 # El parámetro define el número máximo de conexiones en cola
 
@@ -32,14 +32,14 @@ print("Servidor a la espera de conexiones ...")
 # accept() bloquea hasta que llega una conexión
 # conn: nuevo socket para comunicarse con el cliente
 # addr: dirección y puerto del cliente
-cliente, direccion = servidor.accept()
-print(f"Conexión realizada por {direccion}")
+ 
+print(f"Conexión realizada por {addr}")
 
 # TODO: Recibir datos del cliente (hasta 1024 bytes)
  
-datos = cliente.recv(1024)
+
 # TODO: Enviar respuesta al cliente (convertida a bytes)
 # sendall() asegura que todos los datos sean enviados
-cliente.sendall(b"hola!" + datos) # debe ser binario, NO cadenas 
+
 # TODO: Cerrar la conexión con el cliente
-cliente.close()
+
