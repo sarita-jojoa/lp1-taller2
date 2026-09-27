@@ -55,4 +55,4 @@ while True:
     conn.sendall(data)
 
     # TODO: Cerrar la conexión con el cliente actual
-
+    conn.close()
