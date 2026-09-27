@@ -23,7 +23,7 @@ servidor.bind((HOST, PORT))
 
 # TODO: Poner el socket en modo escucha
 
-
+servidor.listen()
 
 # El parámetro define el número máximo de conexiones en cola
 
