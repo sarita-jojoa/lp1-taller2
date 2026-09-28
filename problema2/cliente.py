@@ -41,4 +41,4 @@ data = cliente.recv(1024)
 print("Mensaje recibido: ", data.decode())
 
 # TODO: Cerrar la conexión con el servidor
-
+cliente.close()
