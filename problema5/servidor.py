@@ -38,4 +38,17 @@ def checksum_archivo (nombre_archivo):
         
     return md5.hexdigest() # Devolver el checksum en formato hexadecimal
 
-            
+#CREAR RUTA SEGURA
+
+def ruta_segura(nombre):           
+    """Crea una ruta segura para guardar un archivo.
+    Evita que se pueda acceder a archivos fuera de la carpeta
+    especificada.
+    """
+    # Obtener solamente el nombre del archivo
+    nombre = os.path.basename(nombre)
+
+    # Crear la ruta dentro de la carpeta
+    ruta = os.path.join(CARPETA, nombre)
+
+    return ruta
