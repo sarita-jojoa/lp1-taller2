@@ -26,6 +26,8 @@ cliente.request('GET', '/')
 # TODO: Obtener la respuesta del servidor
 # getresponse() devuelve un objeto HTTPResponse con los datos de la respuesta
 
+respuesta = cliente.getresponse()
+
 # TODO: Leer el contenido de la respuesta
 # read() devuelve el cuerpo de la respuesta en bytes
 
