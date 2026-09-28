@@ -21,6 +21,8 @@ cliente = http.client.HTTPConnection(HOST, PORT)
 # Primer parámetro: método HTTP (GET, POST, etc.)
 # Segundo parámetro: path del recurso solicitado
 
+cliente.request('GET', '/')
+
 # TODO: Obtener la respuesta del servidor
 # getresponse() devuelve un objeto HTTPResponse con los datos de la respuesta
 
