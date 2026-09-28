@@ -41,3 +41,4 @@ servidor = http.server.HTTPServer((HOST, PORT), Servidor)
 # serve_forever() maneja peticiones indefinidamente hasta una interrupción
 # (normalmente con Ctrl+C en la terminal)
 
+servidor.serve_forever()
