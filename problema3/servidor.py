@@ -15,7 +15,7 @@ PORT = 9000
 # Lista para mantener todos los sockets de clientes conectados
 clients = []
 
-def handle_client(client_socket, client_name):
+def handle_client(client_socket, client_name): #handle es quien atiende al cliente
     """
     Maneja la comunicación con un cliente específico en un hilo separado.
     
@@ -105,6 +105,6 @@ while True:
     # TODO: Crear e iniciar un hilo para manejar la comunicación con este cliente
     # target: función que se ejecutará en el hilo
     # args: argumentos que se pasarán a la función
-    client_handler = # ...
+    client_handler = threading.Thread(target=handle_client, args=(client, client_name))
     client_handler.start()
 
