@@ -52,3 +52,40 @@ def ruta_segura(nombre):
     ruta = os.path.join(CARPETA, nombre)
 
     return ruta
+
+# RECIBIR ARCHIVO
+def recibir_archivo(client, nombre_archivo, tamaño):
+    """
+    Recibe un archivo desde el cliente.
+
+    El archivo se recibe por partes utilizando BUFFER.
+    """
+
+    # Crear una ruta segura
+    ruta = ruta_segura(nombre_archivo)
+
+    # Contador de bytes recibidos
+    recibidos = 0
+
+    # Abrir el archivo en modo escritura binaria
+    with open(ruta, 'wb') as archivo:
+
+        while recibidos < tamaño:
+
+            # Calcular cuántos bytes faltan
+            cantidad = min(BUFFER, tamaño - recibidos)
+
+            # Recibir datos
+            datos = client.recv(cantidad)
+
+            # Si no llegan datos, terminar
+            if not datos:
+                break
+
+            # Guardar los datos recibidos
+            archivo.write(datos)
+
+            # Actualizar contador
+            recibidos += len(datos)
+
+    return ruta
