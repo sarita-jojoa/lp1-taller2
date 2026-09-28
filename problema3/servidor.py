@@ -9,6 +9,9 @@ import threading
 
 # TODO: Definir la dirección y puerto del servidor
 
+HOST = 'localhost'
+PORT = 9000
+
 # Lista para mantener todos los sockets de clientes conectados
 clients = []
 
