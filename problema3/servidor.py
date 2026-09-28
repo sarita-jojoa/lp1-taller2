@@ -40,6 +40,7 @@ def handle_client(client_socket, client_name):
             
             # TODO: Retransmitir el mensaje a todos los clientes excepto al remitente
 
+            broadcast(message, client_socket)
             
         except ConnectionResetError:
             # Manejar desconexión inesperada del cliente
