@@ -85,6 +85,7 @@ while True:
     # client: nuevo socket para comunicarse con el cliente
     # addr: dirección y puerto del cliente
     
+    client, addr = servidor.accept()
     print(f"Conexión realizada por {addr}")
     
     # TODO: Recibir el nombre del cliente (hasta 1024 bytes) y decodificarlo
