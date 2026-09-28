@@ -16,7 +16,8 @@ if not os.path.exists(CARPETA):
     os.makedirs(CARPETA)
 
 #CALCULAR CHECKSUM
-def calcular_checksum(archivo):
+def checksum_archivo (nombre_archivo):
+
     """Calcula el checksum MD5 de un archivo.
     Sirve para comprobar que el archivo recibido
     sea igual al archivo original.
@@ -28,7 +29,7 @@ def calcular_checksum(archivo):
         
         while True:
              
-        datos = archivo.read(BUFFER): # Leer el archivo en bloques de tamaño 
+        datos = archivo.read(BUFFER) # Leer el archivo en bloques de tamaño 
 
         if not datos: # Si no hay más datos, salir del bucle
                 break
