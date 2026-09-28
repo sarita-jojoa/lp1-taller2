@@ -38,6 +38,8 @@ client.connect((HOST, PORT))
 
 # TODO: Enviar el nombre del cliente al servidor (codificado a bytes)
 
+client.send(client_name.encode())
+
 # Crear y iniciar un hilo para recibir mensajes del servidor
 # target: función que se ejecutará en el hilo
 receive_thread = threading.Thread(target=receive_messages)
