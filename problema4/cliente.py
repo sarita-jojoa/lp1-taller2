@@ -36,5 +36,7 @@ contenido = respuesta.read()
 # TODO: Decodificar los datos de bytes a string e imprimirlos
 # decode() convierte los bytes a string usando UTF-8 por defecto
 
+print(contenido.decode('UTF-8'))
+
 # TODO: Cerrar la conexión con el servidor
 
