@@ -94,6 +94,8 @@ while True:
 
     # TODO: Agregar el socket del cliente a la lista de clientes conectados
     
+    clients.append(client)
+
     # Enviar mensaje de confirmación de conexión al cliente
     client.send("ya estás conectado!".encode())
     
