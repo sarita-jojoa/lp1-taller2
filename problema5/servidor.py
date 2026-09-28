@@ -89,3 +89,49 @@ def recibir_archivo(client, nombre_archivo, tamaño):
             recibidos += len(datos)
 
     return ruta
+
+# ENVIAR ARCHIVO 
+def enviar_archivo(client, nombre_archivo):
+    """
+    Envía un archivo desde el servidor al cliente.
+    """
+
+    # Crear una ruta segura
+    ruta = ruta_segura(nombre_archivo)
+
+    # Comprobar si el archivo existe
+    if not os.path.isfile(ruta):
+
+        # Informar al cliente
+        client.send("ERROR".encode())
+
+        return
+
+    # Obtener tamaño del archivo
+    tamaño = os.path.getsize(ruta)
+
+    # Calcular checksum
+    checksum = checksum_archivo(ruta)
+
+    # Enviar tamaño y checksum
+    informacion = f"{tamaño} {checksum}"
+
+    client.send(informacion.encode())
+
+    # Esperar confirmación del cliente
+    client.recv(BUFFER)
+
+    # Abrir archivo en modo lectura binaria
+    with open(ruta, 'rb') as archivo:
+
+        while True:
+
+            # Leer una parte del archivo
+            datos = archivo.read(BUFFER)
+
+            # Si no quedan datos, terminar
+            if not datos:
+                break
+
+            # Enviar los datos
+            client.send(datos)
