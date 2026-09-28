@@ -30,6 +30,8 @@ client_name = input("Cuál es tu nombre? ")
 # AF_INET: socket de familia IPv4
 # SOCK_STREAM: socket de tipo TCP (orientado a conexión)
 
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 # TODO: Conectar el socket al servidor en la dirección y puerto especificados
 
 # TODO: Enviar el nombre del cliente al servidor (codificado a bytes)
