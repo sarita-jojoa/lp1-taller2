@@ -8,8 +8,11 @@ import socket
 
 # TODO: Definir la dirección y puerto del servidor
 
+HOST = 'localhost'
+PORT = 9000
+
 # Solicitar mensaje al usuario por consola
-message = input("Mensaje: ")
+message = input(" Ingresa tu mensaje: ")
 
 # TODO: Crear un socket TCP/IP
 # AF_INET: socket de familia IPv4
