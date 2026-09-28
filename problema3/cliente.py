@@ -18,6 +18,8 @@ def receive_messages():
     while True:
         # TODO: Recibir mensajes del servidor (hasta 1024 bytes) y decodificarlos
 
+        message = client_socket.recv(1024).decode()
+
         # Imprimir el mensaje recibido
         print(message)
 
