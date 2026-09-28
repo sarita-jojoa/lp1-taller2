@@ -40,3 +40,4 @@ print(contenido.decode('UTF-8'))
 
 # TODO: Cerrar la conexión con el servidor
 
+cliente.close()
