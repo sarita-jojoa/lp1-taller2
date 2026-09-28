@@ -54,11 +54,12 @@ def broadcast(message, sender_socket):
     
     Args:
         message: Mensaje a enviar (string)
-        sender_socket: Socket del cliente que envió el mensaje original
+        sender_socket: Socket del cliente que envió el mensaje original # sender_socket es el emisor
     """
     for client in clients:
         if client != sender_socket:
             # TODO: Enviar el mensaje codificado a bytes a cada cliente
+            client.send(message.encode())
 
 
 # TODO: Crear un socket TCP/IP
