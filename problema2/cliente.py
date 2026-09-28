@@ -30,6 +30,8 @@ print(f"Mensaje '{message}' enviado.")
 # TODO: Codificar el mensaje a bytes y enviarlo al servidor
 # sendall() asegura que todos los datos sean enviados
 
+cliente.sendall(message.encode())
+
 # TODO: Recibir datos del servidor (hasta 1024 bytes)
 
 # Decodificar e imprimir los datos recibidos
