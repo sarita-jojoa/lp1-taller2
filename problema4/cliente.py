@@ -31,6 +31,8 @@ respuesta = cliente.getresponse()
 # TODO: Leer el contenido de la respuesta
 # read() devuelve el cuerpo de la respuesta en bytes
 
+contenido = respuesta.read()
+
 # TODO: Decodificar los datos de bytes a string e imprimirlos
 # decode() convierte los bytes a string usando UTF-8 por defecto
 
