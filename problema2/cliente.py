@@ -22,6 +22,8 @@ cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # TODO: Conectar el socket al servidor en la dirección y puerto especificados
 
+cliente.connect((HOST, PORT))
+
 # Mostrar mensaje que se va a enviar
 print(f"Mensaje '{message}' enviado.")
 
