@@ -50,3 +50,22 @@ espectadores = []
 # Lock para proteger el estado compartido
 lock = threading.Lock()
 
+# MOSTRAR TABLERO
+
+def mostrar_tablero():
+    """
+    Convierte el tablero en un texto
+    para poder enviarlo a los clientes.
+    """
+
+    tablero_texto = (
+        f"\n"
+        f" {tablero[0]} | {tablero[1]} | {tablero[2]}\n"
+        f"---+---+---\n"
+        f" {tablero[3]} | {tablero[4]} | {tablero[5]}\n"
+        f"---+---+---\n"
+        f" {tablero[6]} | {tablero[7]} | {tablero[8]}\n"
+    )
+
+    return tablero_texto
+
