@@ -23,3 +23,19 @@ PORT = 9000
 
 # Tamaño del buffer
 BUFFER = 1024
+
+# CONECTAR CON EL SERVIDOR DESTINO
+
+def conectar_servidor(host, port):
+    """
+    Crea una conexión con el servidor destino.
+    """
+
+    # Crear un socket TCP
+    servidor_destino = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+    # Conectar con el servidor destino
+    servidor_destino.connect((host, port))
+
+    # Devolver el socket
+    return servidor_destino
