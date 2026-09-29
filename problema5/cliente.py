@@ -260,35 +260,35 @@ while True:
 
 # LIST
 
-if opcion == '1':
+    if opcion == '1':
 
-    listar_archivos(cliente)
+       listar_archivos(cliente)
 
 # UPLOAD
 
-elif opcion == '2':
+    elif opcion == '2':
 
-    upload(cliente)
+       upload(cliente)
 
 # DOWNLOAD
 
-elif opcion == '3':
+    elif opcion == '3':
 
-    download(cliente)
+       download(cliente)
 
 # SALIR
 
-elif opcion == '4':
+    elif opcion == '4':
 
-    print("Desconectando del servidor...")
+       print("Desconectando del servidor...")
 
-    break
+       break
 
 # OPCIÓN INCORRECTA
 
-else:
+    else:
 
-    print("Opción incorrecta.")
+        print("Opción no válida.")
 
 # Cerrar la conexión
 cliente.close()
