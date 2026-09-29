@@ -169,4 +169,10 @@ def procesar_http(client, peticion):
 
         servidor_destino = conectar_servidor(host, port)
 
+        # ENVIAR PETICIÓN
+
+        servidor_destino.sendall(peticion)
+
+        print("Petición enviada al servidor destino.")
+
 
