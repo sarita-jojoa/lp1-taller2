@@ -394,3 +394,25 @@ def manejar_espectador(client, nombre):
     client.close()
 
     print(f"Espectador {nombre} se desconectó.")
+
+# MANEJAR CLIENTE
+
+def handle_client(client, addr):
+    """
+    Decide si el cliente será jugador
+    o espectador.
+    """
+
+    global jugador1
+    global jugador2
+
+    try:
+
+        # Recibir nombre
+        nombre = client.recv(BUFFER).decode()
+
+        # Enviar opciones
+        enviar(client, "Escribe J para jugar o E para espectador:" )
+
+        # Recibir opción
+        opcion = client.recv(BUFFER).decode().upper().strip()
