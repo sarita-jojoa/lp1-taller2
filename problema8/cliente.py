@@ -134,4 +134,15 @@ while True:
 
         break
 
+     # OPCIÓN INCORRECTA
+
+    else:
+
+        print("Opción no válida.")
+
+# CERRAR CONEXIÓN
+
+cliente.close()
+
+print("Conexión cerrada.")
 
