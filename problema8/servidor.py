@@ -69,3 +69,35 @@ def mostrar_tablero():
 
     return tablero_texto
 
+# COMPROBAR GANADOR
+
+def comprobar_ganador():
+    """
+    Comprueba si existe un ganador.
+    """
+
+    # Posibles combinaciones ganadoras
+    combinaciones = [
+        (0, 1, 2),
+        (3, 4, 5),
+        (6, 7, 8),
+        (0, 3, 6),
+        (1, 4, 7),
+        (2, 5, 8),
+        (0, 4, 8),
+        (2, 4, 6)
+    ]
+
+    # Recorrer combinaciones
+    for a, b, c in combinaciones:
+
+        # Comprobar que las posiciones no estén vacías
+        if tablero[a] != "-":
+
+            # Comprobar si los tres símbolos son iguales
+            if tablero[a] == tablero[b] == tablero[c]:
+
+                return tablero[a]
+
+    # No hay ganador
+    return None
