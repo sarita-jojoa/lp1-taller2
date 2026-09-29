@@ -69,3 +69,13 @@ nombre = input("Ingrese su nombre: ")
 
 # Enviar nombre
 cliente.send(nombre.encode())
+
+# ELEGIR TIPO DE CONEXIÓN
+
+print(cliente.recv(BUFFER).decode())
+
+# Pedir opción
+opcion = input("Seleccione una opcion: ")
+
+# Enviar opción
+cliente.send(opcion.encode())
