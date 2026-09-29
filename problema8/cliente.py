@@ -89,3 +89,13 @@ receptor.daemon = True
 
 # Iniciar hilo
 receptor.start()
+
+# MENÚ DEL CLIENTE
+
+while True:
+
+    print("\n1. JUGAR")
+    print("2. SALIR")
+
+    # Pedir opción
+    opcion = input("Seleccione una opcion: ")
