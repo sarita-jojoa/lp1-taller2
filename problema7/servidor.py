@@ -239,4 +239,23 @@ def procesar_https(client, peticion):
 
         # CLIENTE -> SERVIDOR
 
-         hilo_cliente = threading.Thread(target=reenviar_datos, args=(client, servidor_destino))
+        hilo_cliente = threading.Thread(target=reenviar_datos, args=(client, servidor_destino))
+
+        # SERVIDOR -> CLIENTE
+
+        hilo_servidor = threading.Thread(target=reenviar_datos, args=(servidor_destino, client))
+
+        # Iniciar ambos hilos
+        hilo_cliente.start()
+        hilo_servidor.start()
+
+        # Esperar a que terminen
+        hilo_cliente.join()
+        hilo_servidor.join()
+
+        # Cerrar conexión
+        servidor_destino.close()
+
+    except Exception as error:
+
+        print(f"Error HTTPS: {error}")
