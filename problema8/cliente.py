@@ -61,3 +61,11 @@ cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 cliente.connect((HOST, PORT))
 
 print( "Conectado al servidor.")
+
+# PEDIR NOMBRE
+
+nombre = input("Ingrese su nombre: ")
+
+
+# Enviar nombre
+cliente.send(nombre.encode())
