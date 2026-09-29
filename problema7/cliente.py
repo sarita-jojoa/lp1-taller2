@@ -45,3 +45,23 @@ def enviar_peticion():
     cliente.sendall(peticion.encode())
 
     print("Petición enviada al proxy.")
+
+    # RECIBIR RESPUESTA
+
+    while True:
+
+        # Recibir datos del proxy
+        datos = cliente.recv(BUFFER)
+
+        # Si no se reciben datos, terminar
+        if not datos:
+
+            break
+
+        # Mostrar respuesta
+        print(datos.decode('iso-8859-1'), end='')
+
+    # Cerrar conexión
+    cliente.close()
+
+    print("\n\nConexión cerrada.")
