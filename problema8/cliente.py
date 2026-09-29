@@ -123,4 +123,15 @@ while True:
         # Enviar movimiento
         cliente.send(posicion.encode())
 
+        # SALIR
+
+    elif opcion == '2':
+
+        # Informar al servidor
+        cliente.send("SALIR".encode())
+
+        print("Desconectando del servidor...")
+
+        break
+
 
