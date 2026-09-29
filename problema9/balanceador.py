@@ -94,6 +94,9 @@ def comprobar_servidores():
     servidores backend.
     """
 
+    # Guardar el estado anterior de cada servidor
+    estados_anteriores = {}
+
     while True:
 
         # Recorrer servidores
@@ -102,17 +105,31 @@ def comprobar_servidores():
             # Comprobar estado
             servidor['activo'] = health_check(servidor)
 
-            # Mostrar estado
-            if servidor['activo']:
+            # Obtener estado anterior
+            estado_anterior = estados_anteriores.get(
+                servidor['nombre']
+            )
 
-                print(f"{servidor['nombre']} está activo.")
+            # Mostrar solamente si cambió el estado
+            if servidor['activo'] != estado_anterior:
 
-            else:
+                # Mostrar estado
+                if servidor['activo']:
 
-                print(f"{servidor['nombre']} está fuera de servicio.")
+                    print(f"{servidor['nombre']} está activo.")
+
+                else:
+
+                    print(f"{servidor['nombre']} está fuera de servicio.")
+
+                # Guardar nuevo estado
+                estados_anteriores[
+                    servidor['nombre']
+                ] = servidor['activo']
 
         # Esperar antes de volver a comprobar
         time.sleep(5)
+
 
 # OBTENER SERVIDOR DISPONIBLE
 

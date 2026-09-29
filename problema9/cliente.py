@@ -22,7 +22,7 @@ BUFFER = 1024
 
 # CONECTAR AL BALANCEADOR
 
-cliente = socket.socket(socket.AF_INET, socket.SOCK_STREA)
+cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Conectar con el balanceador
 cliente.connect((HOST, PORT))
