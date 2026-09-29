@@ -452,3 +452,18 @@ def handle_client(client, addr):
 
             # Comenzar atención del jugador
             manejar_jugador(client, simbolo, nombre)
+
+            # ESPECTADOR
+
+        elif opcion == "E":
+
+            with lock:
+
+                # Agregar espectador
+                espectadores.append(client)
+
+            print(f"{nombre} entró como espectador.")
+
+            manejar_espectador(client, nombre)
+
+            
