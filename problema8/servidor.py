@@ -135,3 +135,18 @@ def reiniciar_juego():
 
     # El primer turno será para X
     turno = "X"
+
+# ENVIAR MENSAJE
+
+def enviar(client, mensaje):
+    """
+    Envía un mensaje a un cliente.
+    """
+
+    try:
+
+        client.send(mensaje.encode())
+
+    except:
+
+        pass
