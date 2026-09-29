@@ -99,3 +99,28 @@ while True:
 
     # Pedir opción
     opcion = input("Seleccione una opcion: ")
+
+# JUGAR
+
+    if opcion == '1':
+
+        # Pedir posición
+        print("\nSeleccione una posición del 1 al 9.")
+
+        print("\n 1 | 2 | 3")
+
+        print("---+---+---")
+
+        print(" 4 | 5 | 6")
+
+        print("---+---+---")
+
+        print(" 7 | 8 | 9")
+
+        # Pedir movimiento
+        posicion = input("Seleccione una posición: ")
+
+        # Enviar movimiento
+        cliente.send(posicion.encode())
+
+
