@@ -239,3 +239,9 @@ def listar_archivos(client):
 # SOCK_STREAM = TCP
 cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+# CONECTAR AL SERVIDOR
+
+cliente.connect((HOST, PORT))
+
+print("Conectado al servidor.")
+
