@@ -227,3 +227,97 @@ def realizar_movimiento(simbolo, posicion):
         turno = "X"
 
     return "Movimiento correcto."
+
+# MANEJAR JUGADOR
+
+def manejar_jugador(client, simbolo, nombre):
+    """
+    Maneja las acciones de un jugador.
+    """
+
+    global jugador1
+    global jugador2
+
+    # Informar al jugador de su símbolo
+    enviar(client, f"Tu símbolo es {simbolo}\n")
+
+    # Enviar tablero
+    enviar(client,mostrar_tablero())
+
+    while True:
+
+        try:
+
+            # Recibir movimiento
+            data = client.recv(BUFFER)
+
+            # Si no hay datos
+            if not data:
+
+                break
+
+            # Convertir datos a texto
+            mensaje = data.decode().strip()
+
+            # Comprobar salida
+            if mensaje.upper() == "SALIR":
+
+                break
+
+            # Convertir posición a número
+            try:
+
+                posicion = int(mensaje)
+
+            except:
+
+                enviar(client, "Debes introducir una posición del 1 al 9.")
+
+                continue
+
+            # Convertir posición 1-9 a índice 0-8
+            posicion = posicion - 1
+
+            # Proteger el estado compartido
+            with lock:
+
+                # Realizar movimiento
+                resultado = realizar_movimiento(simbolo, posicion)
+
+                # Enviar resultado
+                enviar(client, resultado)
+
+                # Si el movimiento fue correcto
+                if resultado == "Movimiento correcto.":
+
+                    # Mostrar tablero actualizado
+                    notificar_todos(mostrar_tablero())
+
+                    # Informar turno
+                    notificar_todos(f"Turno de: {turno}")
+
+                # Si hay ganador
+                elif resultado.startswith("GANADOR"):
+
+                    ganador = resultado.split(":")[1]
+
+                    notificar_todos(mostrar_tablero())
+
+                    notificar_todos(f"El jugador {ganador} ha ganado.")
+
+                    # Reiniciar tablero
+                    reiniciar_juego()
+
+                # Si hay empate
+                elif resultado == "EMPATE":
+
+                    notificar_todos(mostrar_tablero())
+
+                    notificar_todos("El juego terminó en empate.")
+
+                    # Reiniciar tablero
+                    reiniciar_juego()
+
+        except:
+
+            break
