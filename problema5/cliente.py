@@ -269,3 +269,9 @@ if opcion == '1':
 elif opcion == '2':
 
     upload(cliente)
+
+# DOWNLOAD
+
+elif opcion == '3':
+
+    download(cliente)
