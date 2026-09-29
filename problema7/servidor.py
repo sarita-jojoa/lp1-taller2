@@ -125,3 +125,40 @@ def procesar_http(client, peticion):
 
         # Mostrar URL
         print(f"URL: {url}")
+
+        # OBTENER HOST
+
+        host = None
+
+        # Buscar el header Host
+        for linea in texto.split('\r\n'):
+
+            if linea.lower().startswith('host:'):
+
+                host = linea.split(':', 1)[1].strip()
+
+                break
+
+        # Comprobar que exista Host
+        if host is None:
+
+            client.send(b"HTTP/1.1 400 Bad Request\r\n\r\n")
+
+            return
+
+        # OBTENER PUERTO
+
+        # Puerto HTTP
+        port = 80
+
+        # Comprobar si el host tiene puerto
+        if ':' in host:
+
+            host, puerto = host.rsplit(':', 1)
+
+            port = int(puerto)
+
+        # Mostrar destino
+        print(f"Servidor destino: {host}:{port}")
+
+
