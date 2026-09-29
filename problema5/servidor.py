@@ -246,5 +246,33 @@ def handle_client(client):
                     nombre
                 )
 
+            # COMANDO DESCONOCIDO 
+            else:
+
+                # Informar que el comando no existe
+                client.send(
+                    "Comando no reconocido".encode()
+                )
+
+
+        except ConnectionResetError:
+
+            # Mostrar mensaje si se pierde la conexión
+            print("El cliente se desconectó.")
+
+            break
+
+
+        except Exception as error:
+
+            # Mostrar el error
+            print(f"Error: {error}")
+
+            break
+
+
+    # Cerrar conexión
+    client.close()
+
 
 
