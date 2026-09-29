@@ -101,3 +101,17 @@ def comprobar_ganador():
 
     # No hay ganador
     return None
+
+# COMPROBAR EMPATE
+
+def comprobar_empate():
+    """
+    Comprueba si el tablero está lleno.
+    """
+
+    # Si no existe ningún espacio vacío
+    if "-" not in tablero:
+
+        return True
+
+    return False
