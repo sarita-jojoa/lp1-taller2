@@ -201,3 +201,50 @@ def handle_client(client):
                 # Enviar archivos al cliente
                 client.send(archivos.encode())
 
+            #UPLOAD
+            
+            elif accion == 'UPLOAD':
+
+                # Obtener nombre del archivo
+                nombre = partes[1]
+
+                # Obtener tamaño
+                tamaño = int(partes[2])
+
+                # Avisar al cliente que puede comenzar
+                client.send("READY".encode())
+
+                # Recibir archivo
+                ruta = recibir_archivo(
+                    client,
+                    nombre,
+                    tamaño
+                )
+
+                # Calcular checksum
+                checksum = checksum_archivo(ruta)
+
+                # Crear respuesta
+                mensaje = (
+                    "Archivo recibido correctamente.\n"
+                    f"Checksum: {checksum}"
+                )
+
+                # Enviar respuesta
+                client.send(mensaje.encode())
+
+            #DOWNLOAD
+
+            elif accion == 'DOWNLOAD':
+
+                # Obtener nombre
+                nombre = partes[1]
+
+                # Enviar archivo
+                enviar_archivo(
+                    client,
+                    nombre
+                )
+
+
+
