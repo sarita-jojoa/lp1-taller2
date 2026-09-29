@@ -479,3 +479,12 @@ def handle_client(client, addr):
         print(f"Error con el cliente: {error}")
 
         client.close()
+
+# AF_INET = socket de familia IPv4
+# SOCK_STREAM = socket de tipo TCP
+
+servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# ENLAZAR SOCKET
+
+servidor.bind((HOST, PORT))
