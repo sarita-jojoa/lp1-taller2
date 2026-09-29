@@ -150,3 +150,26 @@ def enviar(client, mensaje):
     except:
 
         pass
+
+# NOTIFICAR A TODOS
+
+def notificar_todos(mensaje):
+    """
+    Envía un mensaje a los dos jugadores
+    y a los espectadores.
+    """
+
+    # Enviar a jugador 1
+    if jugador1 is not None:
+
+        enviar(jugador1, mensaje)
+
+    # Enviar a jugador 2
+    if jugador2 is not None:
+
+        enviar(jugador2, mensaje)
+
+    # Enviar a espectadores
+    for espectador in espectadores:
+
+        enviar(espectador, mensaje)
