@@ -320,3 +320,11 @@ servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Enlazar el socket a la dirección y puerto
 servidor.bind((HOST, PORT))
+
+# PONER SOCKET EN MODO ESCUCHA
+
+# Esperar conexiones de clientes
+
+servidor.listen()
+
+print("Proxy HTTP a la espera de conexiones...")
