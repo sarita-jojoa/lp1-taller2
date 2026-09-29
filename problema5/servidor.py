@@ -135,3 +135,34 @@ def enviar_archivo(client, nombre_archivo):
 
             # Enviar los datos
             client.send(datos)
+
+#LISTAR ARCHIVOS
+
+def listar_archivos():
+    """
+    Devuelve los archivos disponibles en el servidor.
+    """
+
+    # Obtener todos los elementos de la carpeta
+    archivos = os.listdir(CARPETA)
+
+    # Variable para guardar los nombres
+    mensaje = ""
+
+    # Recorrer los elementos
+    for archivo in archivos:
+
+        # Crear ruta completa
+        ruta = os.path.join(CARPETA, archivo)
+
+        # Comprobar que sea un archivo
+        if os.path.isfile(ruta):
+
+            # Agregar el nombre
+            mensaje += archivo + "\n"
+
+    # Si no se encontró ningún archivo
+    if mensaje == "":
+        return "No hay archivos en el servidor."
+
+    return mensaje
