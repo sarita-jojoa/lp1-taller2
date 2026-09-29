@@ -289,3 +289,8 @@ elif opcion == '4':
 else:
 
     print("Opción incorrecta.")
+
+# Cerrar la conexión
+cliente.close()
+
+print("Conexión cerrada.")
