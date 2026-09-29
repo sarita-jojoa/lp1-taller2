@@ -338,3 +338,59 @@ def manejar_jugador(client, simbolo, nombre):
     client.close()
 
     print(f"{nombre} se desconectó.")
+
+# MANEJAR ESPECTADOR
+
+def manejar_espectador(client, nombre):
+    """
+    Maneja la conexión de un espectador.
+
+    El espectador puede observar el tablero,
+    pero no puede realizar movimientos.
+    """
+
+    # Enviar tablero actual
+    enviar( client, mostrar_tablero())
+
+    # Informar que es espectador
+    enviar(client, "Estás conectado como espectador.")
+
+    while True:
+
+        try:
+
+            # Recibir datos
+            data = client.recv(BUFFER)
+
+            # Si no hay datos
+            if not data:
+
+                break
+
+            # Obtener mensaje
+            mensaje = data.decode().strip()
+
+            # Comprobar salida
+            if mensaje.upper() == "SALIR":
+
+                break
+
+            # Los espectadores no pueden jugar
+            enviar(client, "Los espectadores no pueden realizar movimientos.")
+
+        except:
+
+            break
+
+
+    # Eliminar espectador
+    with lock:
+
+        if client in espectadores:
+
+            espectadores.remove(client)
+
+    # Cerrar conexión
+    client.close()
+
+    print(f"Espectador {nombre} se desconectó.")
