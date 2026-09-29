@@ -284,3 +284,10 @@ servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Asociar el socket al HOST y PORT
 servidor.bind((HOST, PORT))
+
+# ESCUCHAR CONEXIONES
+
+# Poner el servidor en modo escucha
+servidor.listen()
+
+print("Servidor a la espera de conexiones...")
