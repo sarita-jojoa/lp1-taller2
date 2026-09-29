@@ -39,3 +39,19 @@ def conectar_servidor(host, port):
 
     # Devolver el socket
     return servidor_destino
+
+# MODIFICAR HEADERS
+
+def modificar_headers(peticion):
+    """
+    Agrega un header a la petición HTTP.
+    """
+
+    # Convertir los datos a texto
+    texto = peticion.decode('iso-8859-1')
+
+    # Agregar un header personalizado
+    texto = texto.replace('\r\n\r\n', '\r\nX-Proxy: Problema7\r\n\r\n')
+
+    # Convertir nuevamente a bytes
+    return texto.encode('iso-8859-1')
