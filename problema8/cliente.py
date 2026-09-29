@@ -79,3 +79,13 @@ opcion = input("Seleccione una opcion: ")
 
 # Enviar opción
 cliente.send(opcion.encode())
+
+# CREAR HILO PARA RECIBIR MENSAJES
+
+receptor = threading.Thread(target=recibir_mensajes, args=(cliente,))
+
+# El hilo termina cuando se cierra el programa
+receptor.daemon = True
+
+# Iniciar hilo
+receptor.start()
