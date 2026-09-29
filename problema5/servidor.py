@@ -279,3 +279,8 @@ def handle_client(client):
 # AF_INET = IPv4
 # SOCK_STREAM = TCP
 servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# ENLAZAR SERVIDOR 
+
+# Asociar el socket al HOST y PORT
+servidor.bind((HOST, PORT))
