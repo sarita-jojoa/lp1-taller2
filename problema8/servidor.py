@@ -173,3 +173,57 @@ def notificar_todos(mensaje):
     for espectador in espectadores:
 
         enviar(espectador, mensaje)
+
+# REALIZAR MOVIMIENTO
+
+def realizar_movimiento(simbolo, posicion):
+    """
+    Realiza un movimiento en el tablero.
+
+    Recibe:
+    - símbolo del jugador
+    - posición seleccionada
+    """
+
+    global turno
+
+    # Comprobar que sea el turno correcto
+    if simbolo != turno:
+
+        return "No es tu turno."
+
+    # Comprobar que la posición sea válida
+    if posicion < 0 or posicion > 8:
+
+        return "Posición no válida."
+
+    # Comprobar que la posición esté vacía
+    if tablero[posicion] != "-":
+
+        return "Esa posición ya está ocupada."
+
+    # Colocar símbolo
+    tablero[posicion] = simbolo
+
+    # Comprobar ganador
+    ganador = comprobar_ganador()
+
+    if ganador is not None:
+
+        return f"GANADOR:{ganador}"
+
+    # Comprobar empate
+    if comprobar_empate():
+
+        return "EMPATE"
+
+    # Cambiar turno
+    if turno == "X":
+
+        turno = "O"
+
+    else:
+
+        turno = "X"
+
+    return "Movimiento correcto."
