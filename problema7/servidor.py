@@ -55,3 +55,31 @@ def modificar_headers(peticion):
 
     # Convertir nuevamente a bytes
     return texto.encode('iso-8859-1')
+
+# REENVIAR DATOS
+
+def reenviar_datos(origen, destino):
+    """
+    Recibe datos de un socket y los envía a otro.
+
+    Esta función permite realizar comunicación
+    bidireccional entre cliente y servidor.
+    """
+
+    try:
+
+        while True:
+
+            # Recibir datos
+            datos = origen.recv(BUFFER)
+
+            # Si no se reciben datos, terminar
+            if not datos:
+                break
+
+            # Enviar datos al destino
+            destino.sendall(datos)
+
+    except:
+
+        pass
