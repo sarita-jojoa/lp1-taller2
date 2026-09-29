@@ -51,3 +51,13 @@ def recibir_mensajes(cliente):
         except:
 
             break
+
+# Crear socket TCP
+
+cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# CONECTARSE AL SERVIDOR
+
+cliente.connect((HOST, PORT))
+
+print( "Conectado al servidor.")
