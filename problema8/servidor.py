@@ -416,3 +416,39 @@ def handle_client(client, addr):
 
         # Recibir opción
         opcion = client.recv(BUFFER).decode().upper().strip()
+
+        # JUGADOR
+
+        if opcion == "J":
+
+            with lock:
+
+                # Comprobar si hay espacio
+                if jugador1 is None:
+
+                    jugador1 = client
+
+                    simbolo = "X"
+
+                elif jugador2 is None:
+
+                    jugador2 = client
+
+                    simbolo = "O"
+
+                else:
+
+                    # Ya existen dos jugadores
+                    enviar(client, "El juego está lleno. Entrarás como espectador.")
+
+                    espectadores.append(client)
+
+                    manejar_espectador(client, nombre)
+
+                    return
+
+            # Informar jugador
+            print(f"{nombre} es jugador {simbolo}.")
+
+            # Comenzar atención del jugador
+            manejar_jugador(client, simbolo, nombre)
