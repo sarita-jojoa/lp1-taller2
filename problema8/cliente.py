@@ -21,3 +21,33 @@ PORT = 9000
 
 # Tamaño del buffer
 BUFFER = 1024
+
+# RECIBIR MENSAJES
+
+def recibir_mensajes(cliente):
+    """
+    Recibe mensajes del servidor.
+
+    Esta función se ejecuta en un hilo separado
+    para poder recibir mensajes mientras el jugador
+    escribe.
+    """
+
+    while True:
+
+        try:
+
+            # Recibir datos
+            data = cliente.recv(BUFFER)
+
+            # Si no se reciben datos
+            if not data:
+
+                break
+
+            # Mostrar mensaje
+            print("\n" + data.decode())
+
+        except:
+
+            break
