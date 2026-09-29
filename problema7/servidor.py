@@ -175,4 +175,25 @@ def procesar_http(client, peticion):
 
         print("Petición enviada al servidor destino.")
 
+        # RECIBIR RESPUESTA
+
+        while True:
+
+            # Recibir datos
+            datos = servidor_destino.recv(BUFFER)
+
+            # Si no hay datos, terminar
+            if not datos:
+                break
+
+            # Enviar respuesta al cliente
+            client.sendall(datos)
+
+        # Cerrar conexión
+        servidor_destino.close()
+
+    except Exception as error:
+
+        print(f"Error HTTP: {error}")
+
 
