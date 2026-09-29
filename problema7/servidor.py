@@ -308,3 +308,10 @@ def handle_client(client, addr):
         client.close()
 
         print(f"Cliente desconectado: {addr}")
+
+# CREAR SOCKET
+
+# AF_INET = socket de familia IPv4
+# SOCK_STREAM = socket de tipo TCP
+
+servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)       
