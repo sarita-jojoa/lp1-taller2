@@ -191,3 +191,13 @@ def handle_client(client):
             # Obtener la acción
             accion = partes[0]
 
+            #LIST
+
+            if accion == 'LIST':
+
+                # Obtener archivos
+                archivos = listar_archivos()
+
+                # Enviar archivos al cliente
+                client.send(archivos.encode())
+
