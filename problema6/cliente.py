@@ -1,4 +1,13 @@
 #Problema 6: Chat con Salas - Cliente
+#Comandos:
+# CREATE  -> Crear una sala
+# JOIN    -> Entrar a una sala
+# LEAVE   -> Salir de una sala
+# LIST    -> Ver salas disponibles
+# USERS   -> Ver usuarios de una sala
+# MSG     -> Enviar mensaje a una sala
+# PRIVATE -> Enviar mensaje privado
+# EXIT    -> Salir
 
 import socket
 import threading
