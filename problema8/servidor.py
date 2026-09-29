@@ -321,3 +321,20 @@ def manejar_jugador(client, simbolo, nombre):
         except:
 
             break
+
+    # DESCONEXIÓN DEL JUGADOR
+
+    with lock:
+
+        if jugador1 == client:
+
+            jugador1 = None
+
+        if jugador2 == client:
+
+            jugador2 = None
+
+    # Cerrar conexión
+    client.close()
+
+    print(f"{nombre} se desconectó.")
