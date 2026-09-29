@@ -215,4 +215,21 @@ def download(client):
 
         print("ERROR: El archivo está dañado.")
 
-    
+# LISTAR ARCHIVOS
+
+def listar_archivos(client):
+    """
+    Solicita al servidor los archivos disponibles.
+    """
+
+    # Enviar comando LIST
+    client.send("LIST".encode())
+
+    # Recibir respuesta
+    archivos = client.recv(BUFFER).decode()
+
+    # Mostrar archivos
+    print("\nArchivos disponibles:")
+
+    print(archivos)
+   
