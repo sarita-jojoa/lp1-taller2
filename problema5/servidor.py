@@ -166,3 +166,28 @@ def listar_archivos():
         return "No hay archivos en el servidor."
 
     return mensaje
+
+# ATENDER CLIENTE 
+
+def handle_client(client):
+    """
+    Atiende las solicitudes realizadas por un cliente.
+    """
+
+    while True:
+
+        try:
+
+            # Recibir comando
+            comando = client.recv(BUFFER).decode()
+
+            # Si no se recibe nada, el cliente se desconectó
+            if not comando:
+                break
+
+            # Separar el comando
+            partes = comando.split()
+
+            # Obtener la acción
+            accion = partes[0]
+
