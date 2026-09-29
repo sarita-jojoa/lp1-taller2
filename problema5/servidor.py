@@ -274,5 +274,8 @@ def handle_client(client):
     # Cerrar conexión
     client.close()
 
+# CREAR SOCKET
 
-
+# AF_INET = IPv4
+# SOCK_STREAM = TCP
+servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
