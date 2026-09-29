@@ -130,4 +130,89 @@ def upload(client):
     # Mostrar checksum original
     print(f"Checksum original: {checksum}")
 
+# DESCARGAR ARCHIVO
+
+def download(client):
+    """
+    Descarga un archivo desde el servidor.
+    """
+
+    # Pedir nombre
+    nombre = input("Nombre del archivo: ")
+
+    # Crear comando
+    comando = f"DOWNLOAD {nombre}"
+
+    # Enviar comando
+    client.send(comando.encode())
+
+    # Recibir información
+    informacion = client.recv(BUFFER).decode()
+
+    # Comprobar si existe
+    if informacion == "ERROR":
+
+        print("El archivo no existe en el servidor.")
+
+        return
+
+    # Separar tamaño y checksum
+    partes = informacion.split()
+
+    tamaño = int(partes[0])
+
+    checksum_servidor = partes[1]
+
+    # Avisar al servidor que estamos listos
+    client.send("READY".encode())
+
+    # Guardar archivo descargado
+    with open(nombre, 'wb') as archivo:
+
+        # Contador de bytes
+        recibidos = 0
+
+        while recibidos < tamaño:
+
+            # Calcular cantidad a recibir
+            cantidad = min(
+                BUFFER,
+                tamaño - recibidos
+            )
+
+            # Recibir datos
+            datos = client.recv(cantidad)
+
+            # Si no llegan datos
+            if not datos:
+                break
+
+            # Guardar datos
+            archivo.write(datos)
+
+            # Actualizar contador
+            recibidos += len(datos)
+
+    # Calcular checksum del archivo descargado
+    checksum_cliente = checksum_archivo(nombre)
+
+    print("\nArchivo descargado correctamente.")
+
+    print(
+        f"Checksum servidor: {checksum_servidor}"
+    )
+
+    print(
+        f"Checksum cliente: {checksum_cliente}"
+    )
+
+    # Comparar checksum
+    if checksum_servidor == checksum_cliente:
+
+        print("La integridad del archivo es correcta.")
+
+    else:
+
+        print("ERROR: El archivo está dañado.")
+
     
