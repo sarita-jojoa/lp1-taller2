@@ -196,4 +196,43 @@ def procesar_http(client, peticion):
 
         print(f"Error HTTP: {error}")
 
+# PROCESAR HTTPS
 
+def procesar_https(client, peticion):
+    """
+    Procesa el método CONNECT utilizado por HTTPS.
+
+    El proxy crea un túnel entre el cliente y
+    el servidor destino.
+    """
+
+    try:
+
+        # Convertir petición a texto
+        texto = peticion.decode('iso-8859-1')
+
+        # Obtener primera línea
+        primera_linea = texto.split('\r\n')[0]
+
+        print(f"\nPetición HTTPS: {primera_linea}")
+
+        # Separar los elementos
+        partes = primera_linea.split()
+
+        # Obtener destino
+        destino = partes[1]
+
+        # Separar host y puerto
+        host, port = destino.split(':')
+
+        # Convertir puerto a entero
+        port = int(port)
+
+        # Conectar con servidor destino
+        servidor_destino = conectar_servidor(host,port)
+
+        # Informar al cliente que el túnel
+        # se estableció correctamente
+        client.sendall(b"HTTP/1.1 200 Connection Established\r\n"b"\r\n")
+
+        print(f"Túnel HTTPS creado con {host}:{port}")
