@@ -65,3 +65,31 @@ def enviar_peticion():
     cliente.close()
 
     print("\n\nConexión cerrada.")
+
+# MENÚ
+
+while True:
+
+    print("\n1. CONECTAR")
+    print("2. SALIR")
+
+    # Pedir opción
+    opcion = input("Seleccione una opcion: ")
+
+    # CONECTAR
+    if opcion == '1':
+
+        enviar_peticion()
+
+    # SALIR
+    elif opcion == '2':
+
+        print("Desconectando del servidor...")
+
+        break
+
+    # OPCIÓN INCORRECTA
+    else:
+
+        print("Opción no válida.")
+
