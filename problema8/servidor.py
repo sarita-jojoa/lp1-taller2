@@ -466,4 +466,16 @@ def handle_client(client, addr):
 
             manejar_espectador(client, nombre)
 
-            
+        # OPCIÓN INCORRECTA
+
+        else:
+
+            enviar(client, "Opción no válida.")
+
+            client.close()
+
+    except Exception as error:
+
+        print(f"Error con el cliente: {error}")
+
+        client.close()
