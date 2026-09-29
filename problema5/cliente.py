@@ -275,3 +275,11 @@ elif opcion == '2':
 elif opcion == '3':
 
     download(cliente)
+
+# SALIR
+
+elif opcion == '4':
+
+    print("Desconectando del servidor...")
+
+    break
