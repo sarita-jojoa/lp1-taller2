@@ -263,3 +263,9 @@ while True:
 if opcion == '1':
 
     listar_archivos(cliente)
+
+# UPLOAD
+
+elif opcion == '2':
+
+    upload(cliente)
