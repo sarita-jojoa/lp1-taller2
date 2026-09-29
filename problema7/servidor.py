@@ -328,3 +328,19 @@ servidor.bind((HOST, PORT))
 servidor.listen()
 
 print("Proxy HTTP a la espera de conexiones...")
+
+# ACEPTAR CONEXIONES
+
+while True:
+
+    # Aceptar conexión entrante
+
+    client, addr = servidor.accept()
+
+    # Crear hilo para atender al cliente
+
+    client_handler = threading.Thread(target=handle_client, args=(client, addr))
+
+    # Iniciar hilo
+
+    client_handler.start()
