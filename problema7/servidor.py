@@ -161,4 +161,12 @@ def procesar_http(client, peticion):
         # Mostrar destino
         print(f"Servidor destino: {host}:{port}")
 
+        # MODIFICAR HEADERS
+
+        peticion = modificar_headers(peticion)
+
+        # CONECTAR CON DESTINO
+
+        servidor_destino = conectar_servidor(host, port)
+
 
