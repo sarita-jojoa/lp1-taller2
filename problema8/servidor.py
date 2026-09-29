@@ -115,3 +115,23 @@ def comprobar_empate():
         return True
 
     return False
+
+# REINICIAR JUEGO
+
+def reiniciar_juego():
+    """
+    Reinicia el tablero y el turno.
+    """
+
+    global tablero
+    global turno
+
+    # Crear tablero vacío
+    tablero = [
+        "-", "-", "-",
+        "-", "-", "-",
+        "-", "-", "-"
+    ]
+
+    # El primer turno será para X
+    turno = "X"
