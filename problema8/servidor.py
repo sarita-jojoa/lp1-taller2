@@ -488,3 +488,9 @@ servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # ENLAZAR SOCKET
 
 servidor.bind((HOST, PORT))
+
+# PONER SOCKET EN MODO ESCUCHA
+
+servidor.listen()
+
+print("Servidor de Tic-Tac-Toe a la espera de conexiones...")
