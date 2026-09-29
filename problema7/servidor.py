@@ -287,3 +287,24 @@ def handle_client(client, addr):
 
         # Obtener método
         metodo = primera_linea.split()[0]
+
+        # PETICIÓN HTTP
+      
+        if metodo != 'CONNECT':
+
+            procesar_http(client, peticion)
+
+        else:
+
+            procesar_https(client, peticion)
+
+    except Exception as error:
+
+        print(f"Error con el cliente: {error}")
+
+    finally:
+
+        # Cerrar conexión
+        client.close()
+
+        print(f"Cliente desconectado: {addr}")
