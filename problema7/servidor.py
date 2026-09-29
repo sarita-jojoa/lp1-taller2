@@ -259,3 +259,31 @@ def procesar_https(client, peticion):
     except Exception as error:
 
         print(f"Error HTTPS: {error}")
+
+# MANEJAR CLIENTE
+
+def handle_client(client, addr):
+    """
+    Maneja la conexión de un cliente.
+    """
+
+    print(f"\nConexión realizada desde la IP {addr}")
+
+    try:
+
+        # Recibir petición del cliente
+        peticion = client.recv(BUFFER)
+
+        # Comprobar si se recibieron datos
+        if not peticion:
+
+            return
+
+        # Convertir petición a texto
+        texto = peticion.decode('iso-8859-1')
+
+        # Obtener primera línea
+        primera_linea = texto.split('\r\n')[0]
+
+        # Obtener método
+        metodo = primera_linea.split()[0]
