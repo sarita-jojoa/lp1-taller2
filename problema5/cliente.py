@@ -245,3 +245,16 @@ cliente.connect((HOST, PORT))
 
 print("Conectado al servidor.")
 
+# MENÚ
+
+while True:
+
+    # Mostrar opciones
+    print("\n1. LIST")
+    print("2. UPLOAD")
+    print("3. DOWNLOAD")
+    print("4. SALIR")
+
+    # Pedir opción
+    opcion = input("Seleccione una opcion: ")
+
