@@ -291,3 +291,20 @@ servidor.bind((HOST, PORT))
 servidor.listen()
 
 print("Servidor a la espera de conexiones...")
+
+while True:
+
+    # Esperar una conexión
+    client, addr = servidor.accept()
+
+    # Mostrar dirección del cliente
+    print(f"Conexión realizada desde la IP {addr}")
+
+    # Crear un hilo para atender al cliente
+    client_handler = threading.Thread(
+        target=handle_client,
+        args=(client,)
+    )
+
+    # Iniciar el hilo
+    client_handler.start()
