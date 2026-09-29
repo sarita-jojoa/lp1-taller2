@@ -83,3 +83,45 @@ def reenviar_datos(origen, destino):
     except:
 
         pass
+
+# PROCESAR PETICIÓN HTTP
+
+def procesar_http(client, peticion):
+    """
+    Procesa una petición HTTP normal.
+    """
+    try:
+
+        # Convertir petición a texto
+        texto = peticion.decode('iso-8859-1')
+
+        # Mostrar la petición recibida
+        print("\nPetición recibida:")
+
+        # Mostrar solamente la primera línea
+        print(texto.split('\r\n')[0])
+
+        # Obtener primera línea
+        primera_linea = texto.split('\r\n')[0]
+
+        # Separar los elementos
+        partes = primera_linea.split()
+
+        # Comprobar que la petición sea correcta
+        if len(partes) < 2:
+
+            client.send(b"HTTP/1.1 400 Bad Request\r\n\r\n")
+
+            return
+
+        # Obtener método
+        metodo = partes[0]
+
+        # Obtener URL
+        url = partes[1]
+
+        # Mostrar método
+        print(f"Método: {metodo}")
+
+        # Mostrar URL
+        print(f"URL: {url}")
