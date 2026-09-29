@@ -283,3 +283,9 @@ elif opcion == '4':
     print("Desconectando del servidor...")
 
     break
+
+# OPCIÓN INCORRECTA
+
+else:
+
+    print("Opción incorrecta.")
