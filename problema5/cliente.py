@@ -258,3 +258,8 @@ while True:
     # Pedir opción
     opcion = input("Seleccione una opcion: ")
 
+# LIST
+
+if opcion == '1':
+
+    listar_archivos(cliente)
