@@ -7,5 +7,4 @@ import threading   #varios clientes
 
 HOST = 'localhost'     # dirección IP del servidor
 PORT = 9000            # puerto del servidor
-BUFFER = 1024          # Tamaño del buffer utilizado para enviar y recibir datos
-CARPETA = 'archivos'   # Carpeta donde se guardarán los archivos
+BUFFER = 1024          # Tamaño del buffer utilizado para enviar y recibir datosCARPETA = 'archivos'   # Carpeta donde se guardarán los archivos
