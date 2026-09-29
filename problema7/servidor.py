@@ -236,3 +236,7 @@ def procesar_https(client, peticion):
         client.sendall(b"HTTP/1.1 200 Connection Established\r\n"b"\r\n")
 
         print(f"Túnel HTTPS creado con {host}:{port}")
+
+        # CLIENTE -> SERVIDOR
+
+         hilo_cliente = threading.Thread(target=reenviar_datos, args=(client, servidor_destino))
